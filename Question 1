@@ -1,0 +1,43 @@
+##Question1## 
+# A vector is created, where the function rnorm creates 65 randomly chosen, and normally distributed values,
+# and where the function trunc takes a single numeric argument and returns a numeric vector containing the
+# integers formed by truncating the values towards 0.
+
+##Preparation##
+# *rnorm* and *trunc* create a vector of 65 random, normally distributed, truncated values. 
+survey_values <- c(trunc(rnorm(65, sd=1, mean = 3.5 ))) survey_values
+
+## Question 1 -Part A ## 
+# The number of participants in the survey_values vector which agree with the question (elements >= 5) are counted.
+# *sum* calculates the number of values in the survey_values vector that are >=5. 
+
+agree_with_question <-sum(survey_values >= 5) 
+agree_with_question
+
+## Question 1 -Part B ## 
+# A vector showing the positions of the participants in the survey_values vector that somehow disagree with the question (elements <= 3).
+# *which* returns the positions of the values <= 3, in the survey_values vector. 
+
+somehow_disagree <- c(which(survey_values <= 3))
+somehow_disagree
+
+## Question 1 -Part C ## 
+# A loop which prints the value and position in the survey_values vector of each participant who did not disagree with the question
+# (elements >= 4) is created.
+
+# A for loop loops through the survey_values vector. 
+# If the value >= 4, the value and its position in the vector are printed. 
+# Each value and position is printed on a new line.
+
+for (i in 1:length(survey_values)) {
+  if (survey_values[i]>= 4) 
+    cat("Value:", survey_values[i], "Position",i, "\n") 
+}
+
+
+# (Question 2 didn't require code - it involved identifying errors in a programme)
+
+
+
+
+
