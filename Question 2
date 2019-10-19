@@ -1,0 +1,22 @@
+## Question 2 ## 
+# Write a correct version of the example code which reverses the argument "Leicester"
+
+# The number of characters in the input_string is calculated using *nchar*. 
+# The input_string is split up by character using *strsplit*. 
+# The for loop loops through the split up input string, reversing the characters. 
+# The reversed characters are printed.
+
+
+
+reverse <- function(input_string) { 
+  input_lenght <- nchar(input_string) 
+  input_as_vector <- strsplit(input_string, split = "") 
+  output_string <-(c())
+  for (i in 1:input_lenght-1) { 
+    output_string <- c(output_string, input_as_vector[[1]][input_lenght-i]) 
+    } 
+    paste(output_string, collapse = "") 
+ }
+ reverse("Leicester") 
+ 
+ 
