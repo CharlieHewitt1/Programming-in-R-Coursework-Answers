@@ -1,0 +1,15 @@
+## Question 3 ##
+# Create an array of random values between 0-50, with dimensions of 12, 12, and 7.
+# (representative of 12 points of data collection over 12 weeks, every day(7)) 
+
+options(max.print=1000000)
+rainfall <- array(c(runif(1008, min = 0, max = 50)), c(12, 12, 7)) 
+rainfall
+
+# Using the apply function, calculate the total rainfall during the week on each spatial cell. 
+apply(rainfall, c(1,2), sum)
+
+# Using the apply function, calculate the average amount of rainfall per day 
+apply(rainfall, c(3), mean)
+
+
