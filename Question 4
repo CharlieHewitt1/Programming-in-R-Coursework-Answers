@@ -1,0 +1,37 @@
+## Question 4 ## 
+library(knitr) 
+library(dplyr)
+
+# (Data showing the number of newspaper articles written about countries and each country's region is provided) 
+
+# Part A - Create a dataframe showing the number of articles written about each country 
+
+articles_df <- data.frame( Country = c("Brazil", "Iran", "Israel", "Mexico", "South Africa", 
+  "Argentina", "Egypt", "Nigeria", "Kenya"), 
+    Articles = c(33489, 20655, 12818, 9769, 8864, 7872, 6856, 2056, 1297)) 
+articles_df
+
+# Part B - Create a dataframe showing each country's region. 
+region_df <- data.frame( Country = c("Brazil", "Iran", "Israel", "Mexico", "South Africa", 
+  "Argentina", "Egypt", "Nigeria", "Kenya"), 
+    Region = c("LAmC", "MENA", "MENA", "LAmC", "SSAf", "LAmC", "MENA", "SSAf", "SSAf")) 
+region_df
+
+# Part C - Merge the dataframes using the "Country" column. 
+combinedtable <- merge(articles_df, region_df, by = "Country") 
+combinedtable
+
+# Part D - Calculate the average number of articles published in each region 
+# Group and average the number of articles published by each region 
+# A table of the average number of articles per region is printed 
+articleaverage <- summarise(
+  group_by( 
+    combinedtable, 
+    Region 
+  ), 
+  Average_Articles =mean(Articles) 
+) 
+kable(articleaverage)
+
+
+
